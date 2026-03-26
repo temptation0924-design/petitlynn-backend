@@ -11,6 +11,12 @@ NOTION_DB_ID = os.environ.get("NOTION_DB_ID", "19e7f080962180fc8d78ee6d7ad75c6c"
 
 @app.route("/api/consult", methods=["POST", "OPTIONS"])
 def consult():
+    if request.method == "OPTIONS":
+        response = jsonify({"status": "ok"})
+        response.headers.add("Access-Control-Allow-Origin", "*")
+        response.headers.add("Access-Control-Allow-Headers", "Content-Type")
+        response.headers.add("Access-Control-Allow-Methods", "POST, OPTIONS")
+        return response, 200
     try:
         data = request.json
         name    = data.get("name", "미입력")
