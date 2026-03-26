@@ -43,7 +43,8 @@ def consult():
     if res.ok:
         return jsonify({"success": True}), 200
     else:
-        return jsonify({"success": False, "error": res.text}), 500
+        print(f"Notion API Error: {res.status_code} - {res.text}")
+        return jsonify({"success": False, "error": res.text, "status": res.status_code}), 500
 
 @app.route("/health")
 def health():
