@@ -26,7 +26,7 @@ def consult():
                 "연락처":   {"phone_number": phone},
                 "특이사항": {"rich_text": [{"text": {"content": f"[{type_}] {message}" if type_ else message}}]},
                 "문의날짜": {"date": {"start": today}},
-                "진행상황": {"select": {"name": "문의-쁘띠린📲"}},
+                "진행상황": {"select": {"name": "홈페이지문의"}},
                 "광고물건": {"rich_text": [{"text": {"content": "쁘띠린 랜딩페이지 문의"}}]}
             }
         }
