@@ -4,7 +4,7 @@ import requests, os
 from datetime import datetime
 
 app = Flask(__name__)
-CORS(app, origins="*", methods=["GET", "POST", "OPTIONS"])
+CORS(app, resources={r"/*": {"origins": "*"}})
 
 NOTION_TOKEN = os.environ.get("NOTION_TOKEN")
 NOTION_DB_ID = "19e7f080-9621-8088-aaf5-000bd030c10c"
