@@ -4,12 +4,12 @@ import requests, os
 from datetime import datetime
 
 app = Flask(__name__)
-CORS(app)  # 랜딩페이지에서 cross-origin 요청 허용
+CORS(app, origins="*", methods=["GET", "POST", "OPTIONS"])
 
 NOTION_TOKEN = os.environ.get("NOTION_TOKEN")
 NOTION_DB_ID = "19e7f080-9621-8088-aaf5-000bd030c10c"
 
-@app.route("/api/consult", methods=["POST"])
+@app.route("/api/consult", methods=["POST", "OPTIONS"])
 def consult():
     data = request.json
     name    = data.get("name", "미입력")
